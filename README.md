@@ -22,23 +22,45 @@ Assess your Azure App Services against Microsoft's best practices across **Secur
 
 ```bash
 # 1. Clone the repository
-git clone <your-repo-url>
-cd azure-appservice-assessment
+git clone https://github.com/travishankins/azure-app-service-assessment.git
+cd azure-app-service-assessment
 
 # 2. Ensure you're logged into Azure
 az login
 az account set --subscription "<your-subscription-name>"
 
-# 3. Run the assessment (takes 2-5 minutes)
+# 3. Run the complete assessment (takes 2-5 minutes)
 ./run-assessment.sh
 ```
 
-That's it! The script will:
-1. ✅ Collect App Service configurations  
-2. ✅ Analyze against Microsoft best practices  
-3. ✅ Generate interactive HTML and text reports  
-4. ✅ Display summary statistics  
-5. ✅ Open the report in your browser
+### What Happens Automatically
+
+The `run-assessment.sh` script orchestrates everything for you:
+
+1. **📥 Data Collection** (~1-3 min)
+   - Scans all App Services in your subscription
+   - Collects configuration details using Azure CLI
+   - Saves raw data to `app-service-assessment/app-services-data-*.json`
+
+2. **🔍 Analysis** (~10-30 sec)
+   - Evaluates each App Service against 52+ best practice checks
+   - Categorizes findings by severity (Critical, High, Medium, Low)
+   - Saves analysis to `app-service-assessment/findings-*.json`
+
+3. **📊 Report Generation** (~5-10 sec)
+   - **Automatically creates** all reports - you don't need to run anything else!
+   - Generates interactive HTML report (`assessment-report-*.html`)
+   - Creates text summary (`assessment-summary-*.txt`)
+   - Produces executive summary (`EXECUTIVE-SUMMARY.md`)
+   - Generates remediation guide (`REMEDIATION-GUIDE.md`)
+   - Creates presentation materials (`TALK-TRACK.md`, `INDEX.md`)
+
+4. **✅ Completion**
+   - Displays summary statistics in terminal
+   - Automatically opens HTML report in your default browser
+   - All reports ready to share with stakeholders
+
+**You don't need to run any additional commands** - everything is generated automatically!
 
 ## 📋 Prerequisites
 
@@ -107,35 +129,58 @@ The toolkit evaluates App Services across 4 dimensions:
 
 ## 🎯 Usage Scenarios
 
-### Scenario 1: Quick Assessment (Most Common)
+### Scenario 1: Complete Assessment (Recommended - Fully Automated)
 
 ```bash
 ./run-assessment.sh
 ```
 
-Opens HTML report automatically when complete.
+**This single command does everything:**
+- ✅ Collects all App Service configurations
+- ✅ Analyzes against best practices
+- ✅ **Generates ALL reports automatically** (HTML, text, markdown)
+- ✅ Opens HTML report in your browser
+- ✅ No additional commands needed!
 
-### Scenario 2: Generate Report Only (Already Have Data)
+**Reports Created Automatically:**
+- `assessment-report-*.html` - Interactive HTML report
+- `assessment-summary-*.txt` - Quick text summary
+- `EXECUTIVE-SUMMARY.md` - Business-level overview
+- `REMEDIATION-GUIDE.md` - Copy-paste fix commands
+- `TALK-TRACK.md` - Presentation guide
+- `INDEX.md` - Package overview
+
+### Scenario 2: Regenerate Reports Only (Already Have Analysis Data)
+
+If you want to regenerate reports with different formatting but already have findings:
 
 ```bash
-# If you already collected data and just want to regenerate reports
+# Regenerate just the HTML and text reports
 python3 generate-report.py app-service-assessment/findings-*.json
 python3 generate-summary.py app-service-assessment/findings-*.json
+
+# Regenerate just the documentation
+python3 generate-docs.py app-service-assessment/findings-*.json app-service-assessment/app-services-data-*.json
 ```
 
-### Scenario 3: Step-by-Step (For Troubleshooting)
+### Scenario 3: Manual Step-by-Step (For Troubleshooting or Custom Workflows)
+
+If you need granular control or debugging:
 
 ```bash
-# 1. Collect data
+# 1. Collect data only
 ./assess-app-services-reader.sh
 
-# 2. Analyze
+# 2. Analyze data only
 python3 analyze-app-services.py app-service-assessment/app-services-data-*.json
 
-# 3. Generate reports
+# 3. Generate all reports manually
 python3 generate-report.py app-service-assessment/findings-*.json
 python3 generate-summary.py app-service-assessment/findings-*.json
+python3 generate-docs.py app-service-assessment/findings-*.json app-service-assessment/app-services-data-*.json
 ```
+
+**💡 Tip:** For most users, Scenario 1 (just running `./run-assessment.sh`) is all you need!
 
 ## 📖 Documentation
 
@@ -152,13 +197,39 @@ python3 generate-summary.py app-service-assessment/findings-*.json
 
 ## 🔧 Remediation Workflow
 
-After running the assessment:
+After running `./run-assessment.sh`, all reports are **automatically created** in the `app-service-assessment/` directory:
 
-1. **Review** the HTML report (`open app-service-assessment/assessment-report-*.html`)
-2. **Share** `EXECUTIVE-SUMMARY.md` with leadership
-3. **Use** `REMEDIATION-GUIDE.md` for exact fix commands
-4. **Present** findings using `TALK-TRACK.md` as a guide
-5. **Re-assess** after fixes to track improvement
+1. **Review Findings**
+   ```bash
+   # HTML report opens automatically, or manually open:
+   open app-service-assessment/assessment-report-*.html
+   ```
+
+2. **Share with Leadership**
+   ```bash
+   # Email or share the executive summary
+   cat app-service-assessment/EXECUTIVE-SUMMARY.md
+   ```
+
+3. **Implement Fixes**
+   ```bash
+   # Use the remediation guide with copy-paste commands
+   cat app-service-assessment/REMEDIATION-GUIDE.md
+   ```
+
+4. **Present to Stakeholders**
+   ```bash
+   # Follow the talk track for customer meetings
+   cat app-service-assessment/TALK-TRACK.md
+   ```
+
+5. **Re-assess After Fixes**
+   ```bash
+   # Run again to verify improvements
+   ./run-assessment.sh
+   ```
+
+**All documentation is generated automatically** - no manual report creation needed!
 
 ## 💡 Example Output
 
