@@ -310,28 +310,6 @@ This is an assessment toolkit based on publicly documented Microsoft best practi
 
 Contributions are welcome! This toolkit can be extended with additional checks or improved reporting.
 
-### Adding New Checks
-
-1. Edit `analyze-app-services.py`
-2. Add a new method to the `AppServiceAnalyzer` class
-3. Call it from the `analyze()` method
-4. Test with sample data
-
-### Improving Reports
-
-- HTML template: Edit `HTML_TEMPLATE` in `generate-report.py`
-- Text summary: Modify `generate-summary.py`
-
----
-
-## 🌟 Star This Repo
-
-If this toolkit helped you improve your Azure security posture, please star the repository!
-
----
-
-**Ready to assess?** Just run: `./run-assessment.sh`
-
 **Questions?** Check `README-Assessment.md` or `QUICK-REFERENCE.md`
 
 ---
