@@ -333,3 +333,11 @@ If this toolkit helped you improve your Azure security posture, please star the 
 **Ready to assess?** Just run: `./run-assessment.sh`
 
 **Questions?** Check `README-Assessment.md` or `QUICK-REFERENCE.md`
+
+---
+
+<div align="center">
+
+Built with ❤️ following Azure Well-Architected Framework and App Service best practices
+
+</div>
