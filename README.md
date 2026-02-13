@@ -300,7 +300,7 @@ chmod +x *.sh  # Make scripts executable
 - **Questions**: Review the detailed `README-Assessment.md`
 - **Issues**: Check that you have Reader access to the subscription
 
-## 📜 License
+## ⚖️ License
 
 This is an assessment toolkit based on publicly documented Microsoft best practices.
 
@@ -311,11 +311,3 @@ This is an assessment toolkit based on publicly documented Microsoft best practi
 Contributions are welcome! This toolkit can be extended with additional checks or improved reporting.
 
 **Questions?** Check `README-Assessment.md` or `QUICK-REFERENCE.md`
-
----
-
-<div align="center">
-
-Built with ❤️ following Azure Well-Architected Framework and App Service best practices
-
-</div>
