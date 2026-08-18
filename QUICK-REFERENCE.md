@@ -48,7 +48,7 @@
 | **Fix commands** | `REMEDIATION-GUIDE.md` | `app-service-assessment/` |
 | **Present findings** | `TALK-TRACK.md` | `app-service-assessment/` |
 | **Package overview** | `INDEX.md` | `app-service-assessment/` |
-| **Detailed docs** | `README-Assessment.md` | Root |
+| **Detailed docs** | `methodology.md` | `docs/` |
 
 ---
 
@@ -186,7 +186,7 @@ done
 ## Support Resources
 
 - **Microsoft Best Practices**: https://learn.microsoft.com/azure/app-service/
-- **Detailed Documentation**: See `README-Assessment.md`
+- **Detailed Documentation**: See `docs/methodology.md`
 - **Package Overview**: See `app-service-assessment/INDEX.md`
 
 ---

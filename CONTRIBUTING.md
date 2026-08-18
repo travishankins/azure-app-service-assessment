@@ -113,7 +113,7 @@ Before submitting:
 ## Pull Request Process
 
 1. Update documentation (README.md, comments)
-2. Add your check to the list in README-Assessment.md
+2. Add your check to the list in docs/methodology.md
 3. Test thoroughly
 4. Submit PR with clear description
 5. Respond to review feedback

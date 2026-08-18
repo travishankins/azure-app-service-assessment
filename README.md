@@ -81,8 +81,9 @@ The `run-assessment.sh` script orchestrates everything for you:
 ├── generate-report.py                   # HTML report generator
 ├── generate-summary.py                  # Text summary generator
 ├── README.md                            # Main documentation (you are here)
-├── README-Assessment.md                 # Detailed methodology & checks
 ├── QUICK-REFERENCE.md                   # Cheat sheet for common tasks
+├── docs/
+│   └── methodology.md                   # Checks, severity levels & customization
 ├── .gitignore                           # Git ignore patterns
 └── app-service-assessment/              # 📁 Output directory (auto-created)
     ├── assessment-report-*.html         # ⭐ Interactive HTML report
@@ -187,7 +188,7 @@ python3 generate-docs.py app-service-assessment/findings-*.json app-service-asse
 | Document | Purpose | When to Use |
 |----------|---------|-------------|
 | `README.md` | Main documentation & quick start | Start here |
-| `README-Assessment.md` | Detailed methodology & checks | Understanding what's assessed |
+| `docs/methodology.md` | Checks, severity levels & customization | Understanding what's assessed |
 | `QUICK-REFERENCE.md` | Command cheat sheet | During remediation |
 | Generated in output folder: |||
 | `assessment-report-*.html` | Interactive findings report | Reviewing & presenting findings |
@@ -297,17 +298,15 @@ chmod +x *.sh  # Make scripts executable
 ## 🤝 Support
 
 - **Microsoft Documentation**: [Azure App Service Best Practices](https://learn.microsoft.com/en-us/azure/app-service/app-service-best-practices)
-- **Questions**: Review the detailed `README-Assessment.md`
+- **Questions**: Review [`docs/methodology.md`](docs/methodology.md)
 - **Issues**: Check that you have Reader access to the subscription
-
-## ⚖️ License
-
-This is an assessment toolkit based on publicly documented Microsoft best practices.
-
----
 
 ## 🤝 Contributing
 
-Contributions are welcome! This toolkit can be extended with additional checks or improved reporting.
+Contributions are welcome — see [CONTRIBUTING.md](CONTRIBUTING.md). This toolkit can be
+extended with additional checks or improved reporting.
 
-**Questions?** Check `README-Assessment.md` or `QUICK-REFERENCE.md`
+## ⚖️ License
+
+Released under the [MIT License](LICENSE). The checks are based on publicly
+documented Microsoft best practices.
